@@ -11,8 +11,8 @@ import (
 
 func RunServer() {
 	r := mux.NewRouter()
-	customerURL := r.PathPrefix("/api").Subrouter()
-	customerURL.HandleFunc("/nguoidanS", api.LayDSNguoiDan).Methods("GET")
+	routerChung := r.PathPrefix("/api").Subrouter()
+	routerChung.HandleFunc("/login", api.Login).Methods(http.MethodPost)
 
 	c := cors.New(cors.Options{
 		AllowedOrigins:   []string{"*"},

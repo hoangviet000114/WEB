@@ -3,26 +3,51 @@ package api
 import (
 	"encoding/json"
 	"net/http"
+	"time"
 	"viet/test/DB_process"
+	"viet/test/models"
+	"viet/test/utils"
 )
 
 func Login(w http.ResponseWriter, r *http.Request) {
-
-	//Kiểm tra username, password có rỗng không
-
-	var data map[string]string
-	if err := json.NewDecoder(r.Body).Decode(&data); err != nil {
+	var reqData models.LoginRequest
+	if err := json.NewDecoder(r.Body).Decode(&reqData); err != nil {
 		w.WriteHeader(http.StatusBadRequest)
+		json.NewEncoder(w).Encode(map[string]interface{}{"message": err.Error()})
 		return
 	}
 
-	nguoidungS, err := DB_process.Get_NguoiDung()
+	if len(reqData.UserName) == 0 || len(reqData.Password) == 0 {
+		w.WriteHeader(http.StatusBadRequest)
+		json.NewEncoder(w).Encode(map[string]interface{}{"message": "tai khoan hoac mat khau khong hop le"})
+		return
+	}
+
+	nguoiDung, err := DB_process.GetNguoiDungByUserNam(&reqData)
 	if err != nil {
 		w.WriteHeader(http.StatusBadRequest)
 		json.NewEncoder(w).Encode(map[string]interface{}{"message": err.Error()})
 		return
 	}
 
-	//Tìm username có tồn tại trong db chưa
-	//Nếu có,
+	token, err := utils.GenerateJwt(nguoiDung.TaiKhoan)
+	if err != nil {
+		w.WriteHeader(http.StatusInternalServerError)
+		json.NewEncoder(w).Encode(map[string]interface{}{"message": err.Error()})
+		return
+	}
+	http.SetCookie(w, &http.Cookie{
+		Name:     "token",
+		Value:    token,
+		Expires:  time.Now().Add(time.Hour * 24),
+		HttpOnly: true,
+	})
+
+	w.WriteHeader(http.StatusOK)
+	json.NewEncoder(w).Encode(map[string]interface{}{
+		"message": "success",
+		"user_name": nguoiDung.TaiKhoan,
+		"email": nguoiDung.Email,
+		"name": nguoiDung.HoTen,
+	})
 }
