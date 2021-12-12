@@ -15,6 +15,12 @@ type NguoiDung struct {
 	DiaChi   string `json:"dia_chi"`
 }
 
+type LoginRequest struct {
+	UserName string `json:"user_name"`
+	Password string `json:"password"`
+}
+
+
 func Hash(password string) (string, error) {
 	bytes, err := bcrypt.GenerateFromPassword([]byte(password), 14)
 	return string(bytes), err
