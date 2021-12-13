@@ -7,3 +7,12 @@ type Tinh struct {
 	ThoiDiemBatDau  string `json:"thoi_diem_bat_dau"`
 	ThoiDiemKetThuc string `json:"thoi_diem_ket_thuc"`
 }
+
+type TinhHuyenXaXomRequest struct {
+	ID string `json:"id"`
+}
+
+type ThemTinhHuyenXaXomRequest struct {
+	ID  string `json:"id"`
+	Ten string `json:"ten"`
+}

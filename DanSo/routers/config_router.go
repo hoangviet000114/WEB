@@ -7,12 +7,22 @@ import (
 	"log"
 	"net/http"
 	"viet/test/api"
+	"viet/test/api/api_captaikhoan"
+	"viet/test/api/api_khaibao"
+	"viet/test/api/api_themxoasua_nguoidan"
 )
 
 func RunServer() {
 	r := mux.NewRouter()
 	routerChung := r.PathPrefix("/api").Subrouter()
 	routerChung.HandleFunc("/login", api.Login).Methods(http.MethodPost)
+	routerChung.HandleFunc("/them_dan", api_themxoasua_nguoidan.ThemNguoiDan).Methods(http.MethodPost)
+	routerChung.HandleFunc("/getAllDan", api.LayDSNguoiDan).Methods(http.MethodPost)
+	routerChung.HandleFunc("/ds", api.LayDSTinhHuyenXaXom).Methods(http.MethodPost)
+	routerChung.HandleFunc("/khaibao", api_khaibao.KhaiBaoTinh).Methods(http.MethodPost)
+	routerChung.HandleFunc("/captaikhoan", api_captaikhoan.CapTaiKhoan).Methods(http.MethodPost)
+	routerChung.HandleFunc("/xoanguoidan", api_themxoasua_nguoidan.XoaNguoiDan).Methods(http.MethodPost)
+	routerChung.HandleFunc("/suanguoidan", api_themxoasua_nguoidan.SuaNguoiDan).Methods(http.MethodPost)
 
 	c := cors.New(cors.Options{
 		AllowedOrigins:   []string{"*"},

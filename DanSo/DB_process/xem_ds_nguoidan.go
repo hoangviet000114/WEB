@@ -2,11 +2,12 @@ package DB_process
 
 import (
 	"log"
+	s "strings"
 	"viet/test/database"
 	"viet/test/models"
 )
 
-func Get_NguoiDan() ([]models.NguoiDan, error) {
+func Get_NguoiDan_All(request *models.XemDSNguoiDanRequest) ([]models.NguoiDan, error) {
 	db := database.Connect()
 	defer db.Close()
 
@@ -37,7 +38,9 @@ func Get_NguoiDan() ([]models.NguoiDan, error) {
 			log.Println("ERROR: ", err)
 			return nguoidanS, err
 		}
-		nguoidanS = append(nguoidanS, nguoidan)
+		if s.HasPrefix(nguoidan.ID_Xom, request.ID) {
+			nguoidanS = append(nguoidanS, nguoidan)
+		}
 	}
 
 	return nguoidanS, err
