@@ -124,3 +124,19 @@ Các kết quả có thể trả về:
 	message:     "success"
 	
 hoặc	message: "Sai ID" (Khi ID không phải là 0/2/4/6/8 số) 
+
+
+##################################################################################################
+
+Báo cáo hoàn thành: http://localhost:10000/api/baocaohoanthanh
+Phần của request Body chứa: 
+	id	(Gồm 8 số - là id của 1 xóm)
+Các kết quả có thể trả về:
+	message:     "success"
+	
+hoặc	message: "Sai ID" (Khi ID không phải là 8 số) 
+hoặc	message: "Xóm không tồn tại"
+
+Sau khi 1 xóm được báo cáo hoàn thành, các xã có all xóm hoàn thành sẽ tự update thành "Hoàn thành",
+các huyện có all xã hoàn thành cũng tự update, và tỉnh cũng vậy.
+

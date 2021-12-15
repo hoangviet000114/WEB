@@ -16,3 +16,7 @@ type ThemTinhHuyenXaXomRequest struct {
 	ID  string `json:"id"`
 	Ten string `json:"ten"`
 }
+
+type BaoCaoHoanThanhRequest struct {
+	ID string `json:"id"`
+}

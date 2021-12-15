@@ -3,7 +3,7 @@ package api_themxoasua_nguoidan
 import (
 	"encoding/json"
 	"net/http"
-	"viet/test/DB_process"
+	"viet/test/DB_process/DB_nguoidan"
 	"viet/test/models"
 )
 
@@ -15,7 +15,7 @@ func SuaNguoiDan(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	err := DB_process.SuaNguoiDanInDB(&reqData)
+	err := DB_nguoidan.SuaNguoiDanInDB(&reqData)
 	if err != nil {
 		if err.Error() != "success" {
 			w.WriteHeader(http.StatusBadRequest)

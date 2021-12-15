@@ -1,9 +1,9 @@
-package api
+package api_themxoasua_nguoidan
 
 import (
 	"encoding/json"
 	"net/http"
-	"viet/test/DB_process"
+	"viet/test/DB_process/DB_nguoidan"
 	"viet/test/models"
 )
 
@@ -15,7 +15,7 @@ func LayDSNguoiDan(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 	if len(reqData.ID) == 0 || len(reqData.ID) == 2 || len(reqData.ID) == 4 || len(reqData.ID) == 6 || len(reqData.ID) == 8 {
-		nguoidanS, err := DB_process.Get_NguoiDan_All(&reqData)
+		nguoidanS, err := DB_nguoidan.Get_NguoiDan_All(&reqData)
 		if err != nil {
 			w.WriteHeader(http.StatusBadRequest)
 			json.NewEncoder(w).Encode(map[string]interface{}{"message": err.Error()})
