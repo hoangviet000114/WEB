@@ -20,3 +20,9 @@ type ThemTinhHuyenXaXomRequest struct {
 type BaoCaoHoanThanhRequest struct {
 	ID string `json:"id"`
 }
+
+type CapQuyenKhaiBaoRequest struct {
+	ID              string `json:"id"`
+	ThoiDiemBatDau  string `json:"thoi_diem_bat_dau"`
+	ThoiDiemKetThuc string `json:"thoi_diem_ket_thuc"`
+}

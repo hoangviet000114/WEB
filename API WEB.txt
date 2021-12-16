@@ -16,6 +16,13 @@ Khi sai pass:
 
 ##################################################################################################
 
+Đăng xuất: http://localhost:10000/api/logout
+
+Nếu thành công, sẽ trả về:
+	message: "success"
+
+##################################################################################################
+
 Thêm người dân: http://localhost:10000/api/them_dan
 Phần của request Body chứa: 
 	cccd

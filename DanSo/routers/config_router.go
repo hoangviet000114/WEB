@@ -24,6 +24,8 @@ func RunServer() {
 	routerChung.HandleFunc("/xoanguoidan", api_themxoasua_nguoidan.XoaNguoiDan).Methods(http.MethodPost)
 	routerChung.HandleFunc("/suanguoidan", api_themxoasua_nguoidan.SuaNguoiDan).Methods(http.MethodPost)
 	routerChung.HandleFunc("/baocaohoanthanh", api.BaoCaoHoanThanh).Methods(http.MethodPost)
+	routerChung.HandleFunc("/capquyenkhaibao", api.CapQuyenKhaiBao).Methods(http.MethodPost)
+	routerChung.HandleFunc("/logout", api.Logout).Methods(http.MethodGet)
 
 	c := cors.New(cors.Options{
 		AllowedOrigins:   []string{"*"},
