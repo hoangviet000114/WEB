@@ -132,6 +132,18 @@ Các kết quả có thể trả về:
 	
 hoặc	message: "Sai ID" (Khi ID không phải là 0/2/4/6/8 số) 
 
+##################################################################################################
+
+Cấp quyền khai báo all/tỉnh/huyện/xã/xóm: http://localhost:10000/api/capquyenkhaibao
+Phần của request Body chứa: 
+	id	(2 số là cấp quyền 1 tỉnh, 4 số là ...)
+	thoi_diem_bat_dau
+	thoi_diem_ket_thuc
+
+Các kết quả có thể trả về:
+	message:     "success"
+hoặc	message:     "Sai ID" 
+hoặc	message:     "Sai cú pháp"
 
 ##################################################################################################
 
@@ -147,3 +159,18 @@ hoặc	message: "Xóm không tồn tại"
 Sau khi 1 xóm được báo cáo hoàn thành, các xã có all xóm hoàn thành sẽ tự update thành "Hoàn thành",
 các huyện có all xã hoàn thành cũng tự update, và tỉnh cũng vậy.
 
+##################################################################################################
+
+Thống kê: http://localhost:10000/api/thongke
+Phần của request Body chứa: 
+	id	(rỗng là Thống kê all tỉnh, 2 số là Thống kê huyện của 1 tỉnh, 4 số là ...)
+Các kết quả có thể trả về:
+	message     :     "success"
+	nam         :      ...
+	nu          :      ...
+	thathoc     :      ...
+	tieuhoc     :      ...
+	thcs        :      ...
+	thpt        :      ...
+	cotongiao   :      ...
+	khongtongiao:      ...

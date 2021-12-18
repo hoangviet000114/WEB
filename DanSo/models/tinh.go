@@ -26,3 +26,18 @@ type CapQuyenKhaiBaoRequest struct {
 	ThoiDiemBatDau  string `json:"thoi_diem_bat_dau"`
 	ThoiDiemKetThuc string `json:"thoi_diem_ket_thuc"`
 }
+
+type ThongKeRequest struct {
+	ID string `json:"id"`
+}
+
+type KetQuaThongKeRequest struct {
+	Nam          string `json:"nam"`
+	Nu           string `json:"nu"`
+	ThatHoc      string `json:"thathoc"`
+	TieuHoc      string `json:"tieuhoc"`
+	THCS         string `json:"thcs"`
+	THPT         string `json:"thpt"`
+	CoTonGiao    string `json:"cotongiao"`
+	KhongTonGiao string `json:"khongtongiao"`
+}
