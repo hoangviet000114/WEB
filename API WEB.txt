@@ -174,3 +174,22 @@ Các kết quả có thể trả về:
 	thpt        :      ...
 	cotongiao   :      ...
 	khongtongiao:      ...
+	duoi18	    :      ...
+	tu18den60   :      ...
+	tren60	    :      ...
+
+
+##################################################################################################
+
+Lấy thông tin người dùng: http://localhost:10000/api/thongtinnguoidung
+Phần của request Body chứa: 
+	user_name
+	password
+Trả về:
+	ho_ten
+	dia_chi
+	email
+	sdt
+	message     :     "success"
+Những kết quả trả về khác của message là lỗi.
+	

@@ -1,4 +1,4 @@
-package api
+package api_nguoidung
 
 import (
 	"encoding/json"
@@ -32,6 +32,9 @@ func ThongKe(w http.ResponseWriter, r *http.Request) {
 			"thpt":         result[0].THPT,
 			"cotongiao":    result[0].CoTonGiao,
 			"khongtongiao": result[0].KhongTonGiao,
+			"duoi18":       result[0].Duoi18,
+			"tu18den60":    result[0].Tu18Den60,
+			"tren60":       result[0].Tren60,
 			"message":      "success"})
 	} else {
 		w.WriteHeader(http.StatusBadRequest)

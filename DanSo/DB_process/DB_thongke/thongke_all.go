@@ -1,12 +1,19 @@
 package DB_thongke
 
 import (
+	"github.com/bearbin/go-age"
 	"log"
 	"strconv"
 	s "strings"
+	"time"
 	"viet/test/database"
 	"viet/test/models"
 )
+
+func getDOB(year, month, day int) time.Time {
+	dob := time.Date(year, time.Month(month), day, 0, 0, 0, 0, time.UTC)
+	return dob
+}
 
 func ThongKeAll(request *models.ThongKeRequest) ([]models.KetQuaThongKeRequest, error) {
 	db := database.Connect()
@@ -35,6 +42,9 @@ func ThongKeAll(request *models.ThongKeRequest) ([]models.KetQuaThongKeRequest, 
 	var THPT = 0
 	var CoTonGiao = 0
 	var KhongTonGiao = 0
+	var Duoi18 = 0
+	var Tu18Den60 = 0
+	var Tren60 = 0
 
 	rows, err := db.Query(query)
 	if err != nil {
@@ -82,6 +92,20 @@ func ThongKeAll(request *models.ThongKeRequest) ([]models.KetQuaThongKeRequest, 
 			} else {
 				CoTonGiao++
 			}
+			var ngaysinh []string
+			ngaysinh = s.Split(nguoidan.NgaySinh, "-")
+			year, _ := strconv.Atoi(ngaysinh[0])
+			month, _ := strconv.Atoi(ngaysinh[1])
+			day, _ := strconv.Atoi(ngaysinh[2])
+
+			dob := age.Age(getDOB(year, month, day))
+			if dob < 18 {
+				Duoi18++
+			} else if dob <= 60 {
+				Tu18Den60++
+			} else {
+				Tren60++
+			}
 		}
 	}
 
@@ -93,6 +117,9 @@ func ThongKeAll(request *models.ThongKeRequest) ([]models.KetQuaThongKeRequest, 
 	result[0].THPT = strconv.Itoa(THPT)
 	result[0].CoTonGiao = strconv.Itoa(CoTonGiao)
 	result[0].KhongTonGiao = strconv.Itoa(KhongTonGiao)
+	result[0].Duoi18 = strconv.Itoa(Duoi18)
+	result[0].Tu18Den60 = strconv.Itoa(Tu18Den60)
+	result[0].Tren60 = strconv.Itoa(Tren60)
 
 	return result, err
 }

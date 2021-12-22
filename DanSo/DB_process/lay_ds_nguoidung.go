@@ -21,8 +21,8 @@ func GetNguoiDungByUserNam(request *models.LoginRequest) (models.NguoiDung, erro
 	}
 	if !rows.Next() {
 		log.Println("Not found data")
-		return nguoidung, err
-	} else  {
+		return nguoidung, fmt.Errorf("Không tìm thấy người dùng")
+	} else {
 		err = rows.Scan(
 			&nguoidung.TaiKhoan,
 			&nguoidung.MatKhau,

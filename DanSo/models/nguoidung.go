@@ -22,3 +22,7 @@ type ThemNguoiDungRequest struct {
 	Email    string `json:"email"`
 	DiaChi   string `json:"dia_chi"`
 }
+
+type LayThongTinNguoiDungRequest struct {
+	TaiKhoan string `json:"tai_khoan"`
+}

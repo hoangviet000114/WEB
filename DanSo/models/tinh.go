@@ -40,4 +40,7 @@ type KetQuaThongKeRequest struct {
 	THPT         string `json:"thpt"`
 	CoTonGiao    string `json:"cotongiao"`
 	KhongTonGiao string `json:"khongtongiao"`
+	Duoi18       string `json:"duoi18"`
+	Tu18Den60    string `json:"tu18den60"`
+	Tren60       string `json:"tren60"`
 }
