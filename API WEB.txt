@@ -192,4 +192,13 @@ Trả về:
 	sdt
 	message     :     "success"
 Những kết quả trả về khác của message là lỗi.
-	
+
+##################################################################################################
+
+Lấy thông tin tất cả người dùng: http://localhost:10000/api/thongtinallnguoidung
+Là 1 Api GET, nên không có Body
+Trả về:
+	ds_nguoidung:     Một mảng chứa tất cả thông tin người dùng
+	message     :     "success"
+Những kết quả trả về khác của message là lỗi.
+
