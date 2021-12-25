@@ -26,6 +26,7 @@ func GetNguoiDungCapDuoiByUsername(request *models.LayThongTinNguoiDungRequest) 
 			&nguoidung.SDT,
 			&nguoidung.Email,
 			&nguoidung.DiaChi,
+			&nguoidung.Quyen,
 		)
 		if err != nil {
 			log.Println("ERROR: ", err)

@@ -28,8 +28,8 @@ func ThemTaiKhoanA2ToDB(request *models.ThemNguoiDungRequest) error {
 	}
 	if !rows.Next() {
 		log.Println("Can Add")
-		_, err := db.Query("INSERT INTO nguoidung VALUES (?, ?, ?, ?, ?, ?)",
-			request.TaiKhoan, request.MatKhau, request.HoTen, request.SDT, request.Email, request.DiaChi)
+		_, err := db.Query("INSERT INTO nguoidung VALUES (?, ?, ?, ?, ?, ?, ?)",
+			request.TaiKhoan, request.MatKhau, request.HoTen, request.SDT, request.Email, request.DiaChi, "NO")
 
 		if err != nil {
 			return err

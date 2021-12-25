@@ -30,6 +30,7 @@ func GetNguoiDungByUsernameAndPassword(request *models.LoginRequest) (models.Ngu
 			&nguoidung.SDT,
 			&nguoidung.Email,
 			&nguoidung.DiaChi,
+			&nguoidung.Quyen,
 		)
 		if err != nil {
 			log.Println("ERROR: ", err)

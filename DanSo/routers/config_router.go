@@ -25,6 +25,7 @@ func RunServer() {
 	routerChung.HandleFunc("/suanguoidan", api_themxoasua_nguoidan.SuaNguoiDan).Methods(http.MethodPost)
 	routerChung.HandleFunc("/baocaohoanthanh", api_nguoidung.BaoCaoHoanThanh).Methods(http.MethodPost)
 	routerChung.HandleFunc("/capquyenkhaibao", api_nguoidung.CapQuyenKhaiBao).Methods(http.MethodPost)
+	routerChung.HandleFunc("/capquyenkhaibaotk", api_khaibao.KhaiBaoNguoiDung).Methods(http.MethodPost)
 	routerChung.HandleFunc("/logout", api_nguoidung.Logout).Methods(http.MethodGet)
 	routerChung.HandleFunc("/thongke", api_nguoidung.ThongKe).Methods(http.MethodPost)
 	routerChung.HandleFunc("/thongtinnguoidung", api_nguoidung.LayThongTinNguoiDung).Methods(http.MethodPost)

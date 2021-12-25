@@ -7,6 +7,7 @@ type NguoiDung struct {
 	SDT      string `json:"sdt"`
 	Email    string `json:"email"`
 	DiaChi   string `json:"dia_chi"`
+	Quyen    string `json:"quyen"`
 }
 
 type LoginRequest struct {

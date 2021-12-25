@@ -28,6 +28,7 @@ func GetAllNguoiDungInDB() ([]models.NguoiDung, error) {
 			&nguoidung.SDT,
 			&nguoidung.Email,
 			&nguoidung.DiaChi,
+			&nguoidung.Quyen,
 		)
 		if err != nil {
 			log.Println("ERROR: ", err)

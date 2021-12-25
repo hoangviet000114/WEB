@@ -29,5 +29,6 @@ func LayThongTinNguoiDung(w http.ResponseWriter, r *http.Request) {
 		"sdt":     nguoiDung.SDT,
 		"email":   nguoiDung.Email,
 		"dia_chi": nguoiDung.DiaChi,
+		"quyen":   nguoiDung.Quyen,
 	})
 }

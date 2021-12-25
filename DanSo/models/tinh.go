@@ -27,6 +27,11 @@ type CapQuyenKhaiBaoRequest struct {
 	ThoiDiemKetThuc string `json:"thoi_diem_ket_thuc"`
 }
 
+type CapQuyenKhaiBaoTKRequest struct {
+	ID    string `json:"id"`
+	Quyen string `json:"quyen"`
+}
+
 type ThongKeRequest struct {
 	ID string `json:"id"`
 }
