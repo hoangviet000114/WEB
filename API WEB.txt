@@ -203,3 +203,13 @@ Trả về:
 	message     :     "success"
 Những kết quả trả về khác của message là lỗi.
 
+##################################################################################################
+
+Lấy thông tin người dùng cấp dưới: http://localhost:10000/api/thongtinnguoidungcapduoi
+Phần của request Body chứa: 
+	tai_khoan	  (Nếu tk là admin thì trả về tất cả các tk còn lại, nếu tk là mã tỉnh huyện xã thì trả về các tk cấp dưới của tỉnh huyện xã đó)
+Trả về:
+	ds_nguoidung:	  Một mảng chứa tất cả thông tin người dùng, có thể rỗng
+	message     :     "success"
+Những kết quả trả về khác của message là lỗi.
+

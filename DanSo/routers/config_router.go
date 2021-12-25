@@ -28,6 +28,7 @@ func RunServer() {
 	routerChung.HandleFunc("/logout", api_nguoidung.Logout).Methods(http.MethodGet)
 	routerChung.HandleFunc("/thongke", api_nguoidung.ThongKe).Methods(http.MethodPost)
 	routerChung.HandleFunc("/thongtinnguoidung", api_nguoidung.LayThongTinNguoiDung).Methods(http.MethodPost)
+	routerChung.HandleFunc("/thongtinnguoidungcapduoi", api_nguoidung.LayThongTinNguoiDungCapDuoi).Methods(http.MethodPost)
 	routerChung.HandleFunc("/thongtinallnguoidung", api_nguoidung.LayAllThongTinNguoiDung).Methods(http.MethodGet)
 
 	c := cors.New(cors.Options{
