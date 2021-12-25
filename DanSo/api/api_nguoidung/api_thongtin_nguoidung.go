@@ -8,14 +8,14 @@ import (
 )
 
 func LayThongTinNguoiDung(w http.ResponseWriter, r *http.Request) {
-	var reqData models.LoginRequest
+	var reqData models.LayThongTinNguoiDungRequest
 	if err := json.NewDecoder(r.Body).Decode(&reqData); err != nil {
 		w.WriteHeader(http.StatusBadRequest)
 		json.NewEncoder(w).Encode(map[string]interface{}{"message": err.Error()})
 		return
 	}
 
-	nguoiDung, err := DB_process.GetNguoiDungByUserNam(&reqData)
+	nguoiDung, err := DB_process.GetNguoiDungByUsername(&reqData)
 	if err != nil {
 		w.WriteHeader(http.StatusBadRequest)
 		json.NewEncoder(w).Encode(map[string]interface{}{"message": err.Error()})

@@ -7,14 +7,14 @@ import (
 	"viet/test/models"
 )
 
-func GetNguoiDungByUsernameAndPassword(request *models.LoginRequest) (models.NguoiDung, error) {
+func GetNguoiDungByUsername(request *models.LayThongTinNguoiDungRequest) (models.NguoiDung, error) {
 	db := database.Connect()
 	defer db.Close()
 
-	query := fmt.Sprintf("SELECT * FROM nguoidung where tai_khoan = '%v'", request.UserName)
+	query := fmt.Sprintf("SELECT * FROM nguoidung where tai_khoan = '%v'", request.TaiKhoan)
 	log.Println("query", query)
 	var nguoidung models.NguoiDung
-	rows, err := db.Query("SELECT * FROM nguoidung where tai_khoan = ?", request.UserName)
+	rows, err := db.Query("SELECT * FROM nguoidung where tai_khoan = ?", request.TaiKhoan)
 	if err != nil {
 		log.Println("Error: ", err)
 		return nguoidung, err
@@ -35,10 +35,6 @@ func GetNguoiDungByUsernameAndPassword(request *models.LoginRequest) (models.Ngu
 			log.Println("ERROR: ", err)
 			return nguoidung, err
 		}
-	}
-	// kiem tra matkhau
-	if nguoidung.MatKhau != request.Password {
-		return nguoidung, fmt.Errorf("password wrong")
 	}
 	return nguoidung, err
 }

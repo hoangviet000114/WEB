@@ -126,6 +126,8 @@ hoặc	message: "Sai ID" (Khi ID không phải là 2/4/6/8 số)
 Liệt kê dân theo all/tỉnh/huyện/xã/xóm: http://localhost:10000/api/getAllDan
 Phần của request Body chứa: 
 	id	(rỗng là liệt kê all, 2 số là liệt kê dân của 1 tỉnh, 4 số là ...)
+	cccd	(Có thể rỗng)
+	hoten	(Có thể rỗng)
 Các kết quả có thể trả về:
 	ds_nguoidan: dữ liệu            (Nhập sai ID tỉnh/huyện/xã/xóm thì sẽ trả về rỗng)
 	message:     "success"
@@ -183,8 +185,7 @@ Các kết quả có thể trả về:
 
 Lấy thông tin người dùng: http://localhost:10000/api/thongtinnguoidung
 Phần của request Body chứa: 
-	user_name
-	password
+	tai_khoan
 Trả về:
 	ho_ten
 	dia_chi

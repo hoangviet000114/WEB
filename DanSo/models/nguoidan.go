@@ -29,7 +29,9 @@ type ThemNguoiDanRequest struct {
 }
 
 type XemDSNguoiDanRequest struct {
-	ID string `json:"id"`
+	ID    string `json:"id"`
+	CCCD  string `json:"cccd"`
+	HoTen string `json:"hoten"`
 }
 
 type XoaNguoiDanRequest struct {

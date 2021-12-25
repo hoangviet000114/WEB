@@ -38,7 +38,7 @@ func Get_NguoiDan_All(request *models.XemDSNguoiDanRequest) ([]models.NguoiDan, 
 			log.Println("ERROR: ", err)
 			return nguoidanS, err
 		}
-		if s.HasPrefix(nguoidan.ID_Xom, request.ID) {
+		if s.HasPrefix(nguoidan.ID_Xom, request.ID) && (request.CCCD == "" || request.CCCD == nguoidan.CCCD) && (request.HoTen == "" || request.HoTen == nguoidan.HoTen) {
 			nguoidanS = append(nguoidanS, nguoidan)
 		}
 	}

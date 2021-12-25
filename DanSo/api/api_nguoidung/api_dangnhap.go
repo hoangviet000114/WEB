@@ -23,7 +23,7 @@ func Login(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	nguoiDung, err := DB_process.GetNguoiDungByUserNam(&reqData)
+	nguoiDung, err := DB_process.GetNguoiDungByUsernameAndPassword(&reqData)
 	if err != nil {
 		w.WriteHeader(http.StatusBadRequest)
 		json.NewEncoder(w).Encode(map[string]interface{}{"message": err.Error()})
