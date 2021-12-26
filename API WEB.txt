@@ -213,3 +213,16 @@ Trả về:
 	message     :     "success"
 Những kết quả trả về khác của message là lỗi.
 
+
+
+##################################################################################################
+
+Cấp quyền (MỚI): http://localhost:10000/api/capquyenkhaibaotk
+Phần của request Body chứa: 
+	tai_khoan	  
+	quyen 	    :     "YES" hoặc "NO"
+Trả về:
+	message     :     "success"
+Những kết quả trả về khác của message là lỗi.
+
+
